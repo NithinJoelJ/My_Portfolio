@@ -1,0 +1,85 @@
+.abstractcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paperbox:hover{
+    animation: float 2s ease-in-out infinite;
+
+}
+
+.papercontainer{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    margin: 15px;
+    background-color: black;
+    border-radius: 34px;
+    cursor: url('/cursor1.png'), auto;
+}
+
+.papercontainer h1{
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+
+.papercontainer h3{
+    color: white;
+    text-align: center;
+}
+
+.papercontainer p{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.9em;
+    font-size: larger;
+    max-width: 90%;
+    font-family: sans-serif;
+    color: rgb(205, 205, 205);
+    font-weight: lighter;
+}
+
+.paperbutton{
+    background-color: whitesmoke;
+    border: none;
+    padding: 13px 28px;
+    cursor: url('/cursor.png'), auto;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+.paperbutton:hover{
+    background-color: whitesmoke;
+    border: none;
+    cursor: url('/cursor.png'), auto;
+    color: black;
+}
+
+@media (max-width: 768px){
+    .papercontainer{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #papers{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}

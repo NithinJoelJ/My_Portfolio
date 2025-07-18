@@ -1,0 +1,32 @@
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box h1{
+    font-size: 75px;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media (max-width: 768px){
+    .box{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .box h1{
+    font-size: 30px;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.line{
+    width: 10%;
+}
+}

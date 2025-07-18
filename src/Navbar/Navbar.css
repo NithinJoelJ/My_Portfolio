@@ -1,0 +1,64 @@
+body{
+    font-family: sans-serif;
+}
+
+.container{
+    padding: 5px;
+    position: sticky;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+
+
+.nav-left h2 a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-right a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: url('/cursor.png'), auto;
+    transition: color 0.3s ease;
+}
+
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-right a:hover::after {
+    width: 100%;
+}
+
+.nav-right a:hover {
+    color: #333;
+}
+
+@media(max-width: 768px){
+    .nav-right a{
+        display: none;
+    }
+
+    .nav-right button{
+
+    }
+}
