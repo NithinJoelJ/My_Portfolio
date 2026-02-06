@@ -1,24 +1,30 @@
 import './Projects.css'
 
-function Projects(props){
+function Projects(props) {
 
     const handlebutton = () => {
         window.open(props.link)
     }
 
-    return(
+    return (
         <>
             <div className="project-box">
-            <div className="image-container">
-                <img src={props.projectimage} alt="" />
-            </div>
-        <div className="contents">
-            <h2>{props.projecttitle}</h2>
-        <p>{props.projectdescription}</p>
-        <button onClick={handlebutton} className='projectbutton'>View More</button>
+                <div className="image-container">
+                    {props.projectimage ? (
+                        <img src={props.projectimage} alt={props.projecttitle} />
+                    ) : (
+                        <div className="image-placeholder">
+                            <span>Image Coming Soon</span>
+                        </div>
+                    )}
+                </div>
+                <div className="contents">
+                    <h2>{props.projecttitle}</h2>
+                    <p>{props.projectdescription}</p>
+                    <button onClick={handlebutton} className='projectbutton'>View More</button>
 
-        </div>
-        </div>
+                </div>
+            </div>
         </>
     );
 }

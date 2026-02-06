@@ -1,85 +1,105 @@
-.abstractcontainer{
+.abstractcontainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 }
 
-.paperbox:hover{
-    animation: float 2s ease-in-out infinite;
-
-}
-
-.papercontainer{
+/* Layout Container */
+.papers-layout {
     display: flex;
-    /* justify-content: center; */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.paperbox:hover {
+    animation: float 2s ease-in-out infinite;
+}
+
+.papercontainer {
+    display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 15px;
-    background-color: black;
-    border-radius: 34px;
-    cursor: url('/cursor1.png'), auto;
+    margin: 0;
+    padding: 30px;
+    background: var(--glass-bg);
+    /* Glassmorphism */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: auto;
+    transition: all 0.4s ease;
+
+    /* Horizontal Layout Sizing */
+    width: calc(50% - 30px);
+    /* 2 per row minus gap */
+    min-width: 350px;
+    flex-grow: 1;
 }
 
-.papercontainer h1{
-    color: white;
+.papercontainer:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.papercontainer h1 {
+    color: var(--text-primary);
     text-align: center;
-    margin: 10px;
+    margin: 10px 0 20px 0;
+    font-size: 1.8rem;
+    line-height: 1.3;
 }
 
-.papercontainer h3{
-    color: white;
+.papercontainer h3 {
+    color: var(--accent-gold);
     text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
-.papercontainer p{
+.papercontainer p {
     margin: 0;
     padding: 0;
     display: flex;
-    text-align: center;
+    text-align: justify;
+    /* Better readability for abstracts */
     align-items: center;
     justify-content: center;
-    line-height: 1.9em;
-    font-size: larger;
-    max-width: 90%;
-    font-family: sans-serif;
-    color: rgb(205, 205, 205);
-    font-weight: lighter;
+    line-height: 1.8;
+    font-size: 1rem;
+    max-width: 100%;
+    /* font-family inherited */
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
-.paperbutton{
-    background-color: whitesmoke;
-    border: none;
-    padding: 13px 28px;
-    cursor: url('/cursor.png'), auto;
-    border-radius: 15px;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 10px;
-    background-color: black;
-    color: whitesmoke;
-    border: 2px solid whitesmoke;
+/* Inherit global button styles, just add specific margins if needed */
+.paperbutton {
+    margin-top: 25px;
+    /* Explicitly ensure it uses global styles by not overriding defaults */
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.paperbutton:hover{
-    background-color: whitesmoke;
-    border: none;
-    cursor: url('/cursor.png'), auto;
-    color: black;
-}
-
-@media (max-width: 768px){
-    .papercontainer{
+@media (max-width: 768px) {
+    .papercontainer {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        margin: 15px 0;
+        padding: 20px;
     }
 
-    #papers{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+    .papercontainer h1 {
+        font-size: 1.4rem;
     }
 }

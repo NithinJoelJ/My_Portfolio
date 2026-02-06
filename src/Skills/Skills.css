@@ -1,79 +1,108 @@
-.right-boxlogo{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
+.About {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 5%;
 }
 
-.right-boxlogo .left-boxskills h1{
-    
-    text-align: center;
+.right-boxlogo {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
 }
 
-.cards-container{
-    /* margin: 30px; */
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
+.right-boxlogo .left-boxskills h1 {
+
+  text-align: center;
 }
 
-.left-boxskills{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.cards-container {
+  /* margin: 30px; */
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.left-boxskills p{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    text-align: justify;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.9em;
-    font-size: larger;
-    max-width: 90%;
-    font-family: sans-serif;
-    color: rgb(86, 86, 86);
-    font-weight: bolder;
+.left-boxskills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.left-boxskills{
-    width: 50%;
+.left-boxskills p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.9em;
+  font-size: larger;
+  max-width: 90%;
+  /* font-family inherited */
+  color: var(--text-secondary);
+  font-weight: bolder;
 }
 
-.card{
-    margin: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #e8e8e3;
-    width: 125px;
-    height: 125px;
-    border: 1px solid #90908c;
-    border-radius: 24px;
-    animation: pulse 3s ease-in-out infinite;
+.left-boxskills {
+  width: 50%;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.03);
-  }
+.left-boxskills h1,
+.right-boxlogo h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.card {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  width: 130px;
+  height: 130px;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-gold);
+  /* Gold border on hover */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.card img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  transition: transform 0.3s ease;
+  background: transparent;
+}
+
+.card:hover img {
+  transform: scale(1.1) rotate(5deg);
 }
 
 
-.card:hover{
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.075);
-    animation: float 2s ease-in-out infinite;
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.075);
+  animation: float 2s ease-in-out infinite;
 }
 
-.card img{
+.card img {
   width: 88px;
   height: 88px;
   object-fit: contain;
@@ -82,53 +111,53 @@
   background-color: transparent;
 }
 
-.card img:hover{
-    border: 0.25px solid #90908c;
+.card img:hover {
+  border: 0.25px solid #90908c;
 }
 
-.card h4{
-    font-weight: 500;
-    margin: 5px;
+.card h4 {
+  font-weight: 500;
+  margin: 5px;
 }
 
-@media (max-width: 768px){
-    .About{
-        width: 100%;
-    height: auto;
-    text-align: center;
-    }
-
-    .left-boxskills{
-        width: 100%;
-    height: auto;
-    text-align: center;
-    }
-
-    .right-boxlogo {
-    width: 100%;
-    display: flex;
+@media (max-width: 1024px) {
+  .About {
     flex-direction: column;
+    height: auto;
     align-items: center;
+    padding: 20px;
+  }
+
+  .left-boxskills,
+  .right-boxlogo {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .left-boxskills h1,
+  .right-boxlogo h1 {
+    font-size: 2rem;
   }
 
   .cards-container {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    width: 100%;
-    padding: 10px;
+    padding: 20px 0;
   }
 
   .card {
-    width: calc(50% - 20px); /* 2 cards per row, minus gap */
-    margin: 0;               /* remove extra spacing */
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-boxskills p {
+    font-size: 1rem;
   }
 
-  .right-boxlogo {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+  .card {
+    width: calc(50% - 20px);
+    height: 140px;
   }
-
 }

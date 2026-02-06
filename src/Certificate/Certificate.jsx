@@ -1,22 +1,24 @@
 import './Certificate.css'
 
-function Certificate(props){
+function Certificate(props) {
 
-    function openlink(){
-        window.open(props.link,"blank");
+    function openlink() {
+        window.open(props.link, "blank");
     }
 
-    return(
+    return (
         <>
-        <div className="badgecard">
-            <img src={props.img} alt="" />
-            <p>{props.title}</p>
-            <p>{props.desc}</p>
-            <div className="mybutton">
-                <button className='mybuttons' onClick={openlink}>LinkedIn</button>
+            <div className="badgecard">
+                <img src={props.img} alt="" />
+                <div className="badge-content">
+                    <h3 className="badge-title">{props.title}</h3>
+                    <p className="badge-desc">{props.desc}</p>
+                </div>
+                <div className="mybutton">
+                    <button className='mybuttons' onClick={openlink}>LinkedIn</button>
+                </div>
+
             </div>
-            
-        </div>
         </>
     );
 }

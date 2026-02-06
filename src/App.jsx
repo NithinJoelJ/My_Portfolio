@@ -36,16 +36,16 @@ function App() {
       </div>
 
       <div id="certificates">
-      <Section name="CERTIFICATES" />
-      <Certificatecards />
+        <Section name="CERTIFICATES" />
+        <Certificatecards />
       </div>
 
       <Section name="PASSIONS" />
       <Passions />
 
       <div id="papers">
-      <Section name="SSRN-WORKS" />
-      <Papercard />
+        <Section name="SSRN-WORKS" />
+        <Papercard />
       </div>
 
       <div id="contact">
@@ -54,7 +54,7 @@ function App() {
       </div>
 
       <div className="ptag">
-        <p>© 2025 Nithin Joel J. All rights reserved.</p>
+        <p>© 2026 Nithin Joel J. All rights reserved.</p>
       </div>
     </>
   );

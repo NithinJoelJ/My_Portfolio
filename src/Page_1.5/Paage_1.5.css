@@ -28,20 +28,20 @@
   z-index: 2;
 }
 
-@media (max-width: 768px){
-  .quote{
+@media (max-width: 768px) {
+  .quote {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 90%;
   }
 
-  .quote h1{
-    font-size: 50px;
+  .quote h1 {
+    font-size: 2.5rem;
   }
 
   .quote-wrapper {
-  height: 100vh;
-}
+    height: 100vh;
+  }
 }

@@ -1,17 +1,8 @@
-.fill{
+.fill {
     display: flex;
 }
 
-.leftfill{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.rightfill{
+.leftfill {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -20,7 +11,16 @@
     justify-content: center;
 }
 
-.leftfill p{
+.rightfill {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftfill p {
     margin: 0;
     padding: 0;
     display: flex;
@@ -30,16 +30,18 @@
     line-height: 1.9em;
     font-size: larger;
     max-width: 90%;
-    font-family: sans-serif;
-    color: rgb(86, 86, 86);
+    /* font-family: sans-serif; removed to inherit global Inter */
+    color: var(--text-secondary);
     font-weight: bolder;
 }
 
-.leftfill h1{
-    font-size: 50px;
+.leftfill h1 {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
 }
 
-.rightfill p{
+.rightfill p {
     margin: 0;
     padding: 0;
     display: flex;
@@ -49,29 +51,38 @@
     line-height: 1.9em;
     font-size: larger;
     max-width: 90%;
-    font-family: sans-serif;
-    color: rgb(86, 86, 86);
+    /* font-family: sans-serif; removed */
+    color: var(--text-secondary);
     font-weight: bolder;
 }
 
-.rightfill h1{
-    font-size: 50px;
+.rightfill h1 {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
 }
 
-@media (max-width: 768px){
-    .fill{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+@media (max-width: 1024px) {
+    .fill {
+        flex-direction: column;
+        padding: 20px;
     }
 
-    .leftfill{
+    .leftfill,
+    .rightfill {
         width: 100%;
+        text-align: center;
+        padding: 20px 0;
     }
 
-    .rightfill{
-        width: 100%;
+    .leftfill h1,
+    .rightfill h1 {
+        font-size: 2.2rem;
+    }
+
+    .leftfill p,
+    .rightfill p {
+        font-size: 1rem;
+        max-width: 100%;
     }
 }

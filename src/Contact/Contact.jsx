@@ -1,4 +1,6 @@
 import './Contact.css'
+import { motion } from 'framer-motion'
+import { FaEnvelope, FaPhone } from 'react-icons/fa'
 import contact from './contact.jpg'
 
 function Contact() {
@@ -8,7 +10,13 @@ function Contact() {
 
     return (
         <>
-            <div className="contact-details">
+            <motion.div
+                className="contact-details"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className="left-contact">
                     <div className="buttons">
                         <div className="firstrow">
@@ -38,12 +46,28 @@ function Contact() {
                             </button>
                         </div>
                     </div>
-                    <div className="details">
-                        <p>📧 Mail: nithinjoelj2004@gmail.com</p>
-                        <p>📞 Ph: +91 7810088191</p>
+                    <div className="details-container">
+                        <div className="contact-info-card">
+                            <div className="icon-wrapper">
+                                <FaEnvelope />
+                            </div>
+                            <div className="info-text">
+                                <span className="label">Mail</span>
+                                <a href="mailto:nithinjoelj2004@gmail.com" className="value">nithinjoelj2004@gmail.com</a>
+                            </div>
+                        </div>
+                        <div className="contact-info-card">
+                            <div className="icon-wrapper">
+                                <FaPhone />
+                            </div>
+                            <div className="info-text">
+                                <span className="label">Phone</span>
+                                <a href="tel:+917810088191" className="value">+91 7810088191</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 }

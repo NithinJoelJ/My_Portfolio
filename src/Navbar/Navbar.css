@@ -1,9 +1,9 @@
-body{
-    font-family: sans-serif;
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-.container{
-    padding: 5px;
+.container {
+    padding: 15px 40px;
     position: sticky;
     justify-content: space-between;
     align-items: center;
@@ -11,27 +11,41 @@ body{
 }
 
 .sticky-navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(26, 36, 32, 0.85);
+    /* Dark Greenish Tint */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
 
-.nav-left h2 a{
+.nav-left h2 a {
     text-decoration: none;
-    color: black;
+    color: var(--text-primary);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .nav-right a {
     position: relative;
     text-decoration: none;
-    color: black;
-    font-weight: bold;
-    padding: 5px 10px;
-    cursor: url('/cursor.png'), auto;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 5px 0;
+    cursor: pointer;
     transition: color 0.3s ease;
+    font-size: 0.95rem;
 }
 
 .nav-right a::after {
@@ -40,8 +54,9 @@ body{
     width: 0%;
     height: 2px;
     left: 0;
-    bottom: 0;
-    background-color: black;
+    bottom: -2px;
+    background-color: var(--accent-gold);
+    /* Gold underline */
     transition: width 0.3s ease-in-out;
 }
 
@@ -50,15 +65,25 @@ body{
 }
 
 .nav-right a:hover {
-    color: #333;
+    color: var(--accent-gold);
 }
 
-@media(max-width: 768px){
-    .nav-right a{
+/* Style the "Let's Talk" button specifically if needed, inheriting mainly from global button */
+.nav-right button {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+}
+
+@media(max-width: 768px) {
+    .container {
+        padding: 15px 20px;
+    }
+
+    .nav-right a {
         display: none;
     }
 
-    .nav-right button{
-
+    .nav-right button {
+        font-size: 0.8rem;
     }
 }

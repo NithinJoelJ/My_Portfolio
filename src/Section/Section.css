@@ -1,32 +1,43 @@
-.box{
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.box h1{
-    font-size: 75px;
-    margin: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 60px 0;
+    width: 100%;
 }
 
-@media (max-width: 768px){
-    .box{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+.box h1 {
+    font-size: 4rem;
+    margin: 0 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to bottom, #ffffff, #aaaaaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.box .line {
+    /* Scoping if possible, but expecting global usage */
+    height: 2px;
+    width: 100px;
+    background: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .box {
+        padding: 40px 0;
     }
 
-    .box h1{
-    font-size: 30px;
-    margin: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
+    .box h1 {
+        font-size: 2rem;
+        margin: 0 15px;
+    }
 
-.line{
-    width: 10%;
-}
+    .box .line {
+        width: 40px;
+    }
 }
