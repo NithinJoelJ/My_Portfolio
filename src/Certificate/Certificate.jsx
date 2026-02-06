@@ -8,7 +8,7 @@ function Certificate(props) {
 
     return (
         <>
-            <div className="badgecard">
+            <div className={`badgecard ${props.isActive ? 'active' : ''}`}>
                 <img src={props.img} alt="" />
                 <div className="badge-content">
                     <h3 className="badge-title">{props.title}</h3>

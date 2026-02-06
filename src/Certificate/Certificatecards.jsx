@@ -15,11 +15,18 @@ import udemy from './Certificates/Udemy.jpg'
 import trinity from './Certificates/trinity.jpg'
 import oracle from './Certificates/Oracle_gen_ai.jpg'
 import MSAI from './Certificates/MSAI.png'
+import google from './Certificates/google.png'
 import { motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 function Certificatecards() {
     const badges = [
+        {
+            img: google,
+            title: "Google Data Analytics Professional Certificate",
+            link: "https://www.linkedin.com/posts/nithinjoelj_google-data-analytics-certificate-activity-7367856050768707584-k3PY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEZp38BMi1nYFSyP5rnMpTboVexDUVQewc",
+            desc: "Successfully completed the Google Data Analytics Professional Certificate on Coursera!"
+        },
         {
             img: MSAI,
             title: "Microsoft Certified: Azure AI Engineer Associate",
@@ -107,24 +114,20 @@ function Certificatecards() {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [cardWidth, setCardWidth] = useState(340); // 320 card + 20 gap
     const [visibleCards, setVisibleCards] = useState(3);
     const [isPaused, setIsPaused] = useState(false);
     const autoScrollInterval = useRef(null);
 
-    // Responsive visible cards & width calculation
+    // Responsive visible cards logic
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
             if (width < 768) { // Mobile
                 setVisibleCards(1);
-                setCardWidth(width); // Use full width for track calculation
             } else if (width < 1200) { // Tablet
                 setVisibleCards(2);
-                setCardWidth(340);
             } else { // Desktop
                 setVisibleCards(3);
-                setCardWidth(340);
             }
         };
 
@@ -201,17 +204,17 @@ function Certificatecards() {
                 <div
                     className="slider-track"
                     style={{
-                        transform: `translateX(-${currentIndex * cardWidth}px)`,
+                        transform: `translateX(calc(${(Math.floor(visibleCards / 2) - currentIndex)} * (100vw / ${visibleCards})))`,
                     }}
                 >
-                    {/* Render badges */}
                     {badges.map((badge, index) => (
-                        <div key={index} style={{ width: cardWidth - 20 }}> {/* Minus gap */}
+                        <div key={index} style={{ width: `${100 / visibleCards}vw`, flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
                             <Certificate
                                 img={badge.img}
                                 title={badge.title}
                                 link={badge.link}
                                 desc={badge.desc}
+                                isActive={index === currentIndex}
                             />
                         </div>
                     ))}
@@ -223,12 +226,13 @@ function Certificatecards() {
                         I will add duplicates of the first 'visibleCards' to the end.
                     */}
                     {badges.slice(0, visibleCards).map((badge, index) => (
-                        <div key={`clone-${index}`} style={{ width: cardWidth - 20 }}>
+                        <div key={`clone-${index}`} style={{ width: `${100 / visibleCards}vw`, flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
                             <Certificate
                                 img={badge.img}
                                 title={badge.title}
                                 link={badge.link}
                                 desc={badge.desc}
+                                isActive={badges.length + index === currentIndex}
                             />
                         </div>
                     ))}

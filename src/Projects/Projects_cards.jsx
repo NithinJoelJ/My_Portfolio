@@ -26,12 +26,6 @@ function Projects_cards() {
             link: "https://www.figma.com/proto/9EOAIHyG2LyjeBm4GjC1qL/Movie_Booking_Ui?page-id=0%3A1&node-id=1-2&p=f&viewport=204%2C231%2C0.42&t=FOoDRDmobIkHqEbg-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2"
         },
         {
-            img: parkinson,
-            title: "Parkinson-Disease-Detection",
-            description: "Parkinson’s disease is a brain disorder that affects movement. It happens when brain cells that make dopamine slowly die. This causes symptoms like: Shaking, Stiffness, Slowness of movement, Trouble with balance and walking. While it currently can't be cured, medications can help manage the symptoms.",
-            link: "https://github.com/NithinJoelJ/Parkinson-Disease-Detection"
-        },
-        {
             img: netflix,
             title: "Youtube Clone",
             description: "I created a YouTube clone using React and Firebase, featuring video streaming, user authentication, and dynamic video loading. The project focuses on responsive design and replicating YouTube's core functionality for an intuitive user experience.",
@@ -78,6 +72,12 @@ function Projects_cards() {
             link: "https://smart-city-traffic-pollution-monitor-6rbbbekymrv9b9ufjrd7ch.streamlit.app/"
         },
         {
+            img: parkinson,
+            title: "Parkinson-Disease-Detection",
+            description: "Parkinson’s disease is a brain disorder that affects movement. It happens when brain cells that make dopamine slowly die. This causes symptoms like: Shaking, Stiffness, Slowness of movement, Trouble with balance and walking. While it currently can't be cured, medications can help manage the symptoms.",
+            link: "https://github.com/NithinJoelJ/Parkinson-Disease-Detection"
+        },
+        {
             img: img4,
             title: "secure-password-vault-compression-encryption",
             description: "A password vault with compression and encryption capabilities.",
@@ -107,7 +107,7 @@ function Projects_cards() {
                     className={`tab-btn ${activeTab === 'streamlit' ? 'active' : ''}`}
                     onClick={() => setActiveTab('streamlit')}
                 >
-                    Streamlit Projects
+                    AI/ML Projects
                 </button>
                 <button
                     className={`tab-btn ${activeTab === 'frontend' ? 'active' : ''}`}
