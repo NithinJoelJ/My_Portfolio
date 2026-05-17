@@ -26,7 +26,7 @@
   font-size: 4rem;
   font-weight: 800;
   color: var(--text-primary);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   /* Subtle gold glow base */
   margin-bottom: 20px;
   letter-spacing: -2px;
@@ -40,11 +40,11 @@
 .line {
   width: 100px;
   height: 4px;
-  background: var(--accent-gold);
+  background: var(--accent-color);
   /* Gold accent */
   margin-bottom: 30px;
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .contents {
@@ -93,11 +93,11 @@
   align-items: center;
   padding: 14px 20px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.03);
   /* Glass base */
   backdrop-filter: blur(5px);
-  color: #EAEAEA;
+  color: #333333;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -113,50 +113,50 @@
 
 /* Hover Effects with Brand Colors */
 .git:hover {
-  border-color: #fff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  border-color: #000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
-  color: #fff;
+  color: #000;
 }
 
 .LinkedIn:hover {
   border-color: #0077b5;
   box-shadow: 0 0 15px rgba(0, 119, 181, 0.4), inset 0 0 10px rgba(0, 119, 181, 0.2);
   transform: translateY(-3px);
-  color: #fff;
+  color: #0077b5;
 }
 
 .yt:hover {
   border-color: #ff0000;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.4), inset 0 0 10px rgba(255, 0, 0, 0.2);
   transform: translateY(-3px);
-  color: #fff;
+  color: #ff0000;
 }
 
 .Resume:hover {
-  border-color: #FFD700;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
-  color: #FFD700;
+  color: #000000;
 }
 
 /* Specific text colors if not hovering can be kept neutral or brand-tinted */
 .git {
-  color: #cccccc;
+  color: #333333;
 }
 
 .LinkedIn {
-  color: #cccccc;
+  color: #333333;
 }
 
 .yt {
-  color: #cccccc;
+  color: #333333;
 }
 
 .Resume {
-  color: #FFD700;
-  border-color: rgba(255, 215, 0, 0.3);
-  background: rgba(255, 215, 0, 0.05);
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .right {
@@ -243,5 +243,37 @@
 
   .left h1 {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main_container {
+    padding: 60px 10px 10px 10px;
+  }
+  
+  .left h1 {
+    font-size: 2.2rem;
+  }
+
+  .contents p {
+    font-size: 0.95rem;
+  }
+
+  .image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .firstrow,
+  .secondrow {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .git,
+  .LinkedIn,
+  .yt,
+  .Resume {
+    width: 100%;
   }
 }

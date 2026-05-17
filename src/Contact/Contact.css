@@ -17,11 +17,12 @@
   width: 100%;
   max-width: 900px;
   height: auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.02);
   border-radius: 20px;
   margin: 10px;
   padding: 40px;
+  box-sizing: border-box;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
 }
@@ -40,8 +41,9 @@
   align-items: center;
   gap: 20px;
   padding: 15px 25px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 15px;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
@@ -49,8 +51,8 @@
 }
 
 .contact-info-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent-gold);
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
   transform: translateX(10px);
 }
 
@@ -60,15 +62,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 215, 0, 0.1);
-  color: var(--accent-gold);
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--accent-color);
   border-radius: 12px;
   font-size: 1.4rem;
   transition: all 0.3s ease;
 }
 
 .contact-info-card:hover .icon-wrapper {
-  background: var(--accent-gold);
+  background: var(--accent-color);
   color: #000;
   transform: rotate(10deg);
 }
@@ -93,10 +95,11 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  word-break: break-word;
 }
 
 .contact-info-card:hover .value {
-  color: var(--accent-gold);
+  color: var(--accent-color);
 }
 
 @media (max-width: 768px) {

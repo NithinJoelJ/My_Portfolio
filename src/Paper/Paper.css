@@ -27,6 +27,7 @@
     flex-direction: column;
     margin: 0;
     padding: 30px;
+    box-sizing: border-box;
     background: var(--glass-bg);
     /* Glassmorphism */
     backdrop-filter: blur(12px);
@@ -39,13 +40,13 @@
     /* Horizontal Layout Sizing */
     width: calc(50% - 30px);
     /* 2 per row minus gap */
-    min-width: 350px;
+    min-width: min(100%, 350px);
     flex-grow: 1;
 }
 
 .papercontainer:hover {
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
 }
 
@@ -58,7 +59,7 @@
 }
 
 .papercontainer h3 {
-    color: var(--accent-gold);
+    color: var(--accent-color);
     text-align: center;
     margin-bottom: 10px;
     text-transform: uppercase;

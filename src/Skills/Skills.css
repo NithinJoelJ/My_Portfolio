@@ -77,17 +77,17 @@
 
 .card:hover {
   transform: translateY(-10px) scale(1.05);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--accent-gold);
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.3);
   /* Gold border on hover */
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .card img {
   width: 70%;
   height: 70%;
   object-fit: contain;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   transition: transform 0.3s ease;
   background: transparent;
 }

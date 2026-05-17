@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Certificate from "./Certificate";
 import Hackathon from './Certificates/Hackathon.jpg'
 import Hp from './Certificates/Hp.jpeg'
@@ -16,16 +16,19 @@ import trinity from './Certificates/trinity.jpg'
 import oracle from './Certificates/Oracle_gen_ai.jpg'
 import MSAI from './Certificates/MSAI.png'
 import google from './Certificates/google.png'
-import { motion } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import azure_fundamentals from './Certificates/Azure_AI_Fundamentals.png'
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTimes } from 'react-icons/fa';
 
 function Certificatecards() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const badges = [
         {
-            img: google,
-            title: "Google Data Analytics Professional Certificate",
-            link: "https://www.linkedin.com/posts/nithinjoelj_google-data-analytics-certificate-activity-7367856050768707584-k3PY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEZp38BMi1nYFSyP5rnMpTboVexDUVQewc",
-            desc: "Successfully completed the Google Data Analytics Professional Certificate on Coursera!"
+            img: azure_fundamentals,
+            title: "Microsoft Certified: Azure AI Fundamentals",
+            link: "https://www.linkedin.com/posts/nithinjoelj_azure-ai-fundamentals-activity-7460188780944089088-MRIC?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEEZp38BMi1nYFSyP5rnMpTboVexDUVQewc",
+            desc: "Successfully completed the requirements and earned the Microsoft Certified: Azure AI Fundamentals certification."
         },
         {
             img: MSAI,
@@ -38,6 +41,12 @@ function Certificatecards() {
             title: "🏅 Oracle Certified Generative AI Professional (2025)",
             link: "https://www.linkedin.com/posts/nithinjoelj_oracle-certified-professional-activity-7349648586541813761-FvyG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEZp38BMi1nYFSyP5rnMpTboVexDUVQewc",
             desc: "Recognized by Oracle for expertise in deploying and managing Generative AI solutions on Oracle Cloud Infrastructure."
+        },
+        {
+            img: google,
+            title: "Google Data Analytics Professional Certificate",
+            link: "https://www.linkedin.com/posts/nithinjoelj_google-data-analytics-certificate-activity-7367856050768707584-k3PY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEZp38BMi1nYFSyP5rnMpTboVexDUVQewc",
+            desc: "Successfully completed the Google Data Analytics Professional Certificate on Coursera!"
         },
         {
             img: AIwithagri,
@@ -113,135 +122,82 @@ function Certificatecards() {
         }
     ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [visibleCards, setVisibleCards] = useState(3);
-    const [isPaused, setIsPaused] = useState(false);
-    const autoScrollInterval = useRef(null);
-
-    // Responsive visible cards logic
-    useEffect(() => {
-        const handleResize = () => {
-            const width = window.innerWidth;
-            if (width < 768) { // Mobile
-                setVisibleCards(1);
-            } else if (width < 1200) { // Tablet
-                setVisibleCards(2);
-            } else { // Desktop
-                setVisibleCards(3);
-            }
-        };
-
-        handleResize(); // Init
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    // Auto Scroll Logic
-    useEffect(() => {
-        if (isPaused) return;
-
-        autoScrollInterval.current = setInterval(() => {
-            handleNext();
-        }, 3000); // 3 seconds per scroll
-
-        return () => clearInterval(autoScrollInterval.current);
-    }, [isPaused, currentIndex, visibleCards]);
-
-    // Keyboard Navigation
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key === 'ArrowLeft') {
-                handlePrev();
-            } else if (e.key === 'ArrowRight') {
-                handleNext();
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentIndex]); // Re-bind when index changes to avoid stale state in simple closures if not using functional state updates properly, but here handlePrev uses functional update.
-    // However, handleNext/Prev are defined inside render. It's safer to just bind once if they didn't depend on state, but they do (or safely use setState callback).
-    // Actually handleNext/Prev use setCurrentIndex(prev => ...), so they don't depend on 'currentIndex' variable directly.
-    // So we can remove [currentIndex] dependency if we pull handleNext/Prev out or ensure stable reference.
-    // For simplicity, I'll keep the dependency or just put the logic inside.
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => {
-            // If we reach the end clone point, reset (circular logic simplified)
-            // For true circular, we use % length
-            return (prevIndex + 1) % badges.length;
-        });
-    };
-
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) => {
-            return prevIndex === 0 ? badges.length - 1 : prevIndex - 1;
-        });
-    };
-
-    // Determine translateX
-    // To enable "infinite" feel properly we'd need clones, but simple loop is:
-    // When at end, it snaps back to 0. 
-    // To avoid blank space at end, we can append the start of list to end.
-    // For now, simpler "End -> Start" jump is acceptable or we limit index to badges.length - visibleCards.
-    // User asked "keep on circulate", implying no stop. "Mod stats" logic above does that (snaps back to 0).
-
-    // Create an extended array for smooth visual loop?
-    // Let's stick to the % logic which jumps back to start. It's a "Carousel".
+    const topCertificates = badges.slice(0, 3);
+    const remainingCertificates = badges.slice(3);
 
     return (
-        <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center' }}>
-
-            <button className="slider-arrow arrow-left" onClick={handlePrev} aria-label="Previous">
-                <FaChevronLeft />
-            </button>
-
-            <div
-                className="badgecontainer"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-            >
-                <div
-                    className="slider-track"
-                    style={{
-                        transform: `translateX(calc(${(Math.floor(visibleCards / 2) - currentIndex)} * (100vw / ${visibleCards})))`,
-                    }}
-                >
-                    {badges.map((badge, index) => (
-                        <div key={index} style={{ width: `${100 / visibleCards}vw`, flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
-                            <Certificate
-                                img={badge.img}
-                                title={badge.title}
-                                link={badge.link}
-                                desc={badge.desc}
-                                isActive={index === currentIndex}
-                            />
-                        </div>
-                    ))}
-
-                    {/* Render a few duplicates at the end to ensure no whitespace if we scroll to last item? 
-                        Actually with the % logic, if we are at the last index, we see blank space to the right?
-                        Yes. To fix this "infinite" look, we usually need simpler Marquee OR complex cloning.
-                        Given "keep on circulate" and "arrows", pure infinite is hard without a library.
-                        I will add duplicates of the first 'visibleCards' to the end.
-                    */}
-                    {badges.slice(0, visibleCards).map((badge, index) => (
-                        <div key={`clone-${index}`} style={{ width: `${100 / visibleCards}vw`, flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
-                            <Certificate
-                                img={badge.img}
-                                title={badge.title}
-                                link={badge.link}
-                                desc={badge.desc}
-                                isActive={badges.length + index === currentIndex}
-                            />
-                        </div>
-                    ))}
-                </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+            <div className="certificate-container">
+                {topCertificates.map((badge, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, margin: "-50px" }}
+                        transition={{ duration: 0.5, delay: index * 0.05 }}
+                    >
+                        <Certificate
+                            img={badge.img}
+                            title={badge.title}
+                            link={badge.link}
+                            desc={badge.desc}
+                        />
+                    </motion.div>
+                ))}
             </div>
+            
+            <motion.button 
+                className="view-more-cert-btn"
+                onClick={() => setIsModalOpen(true)}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                View More Certificates
+            </motion.button>
 
-            <button className="slider-arrow arrow-right" onClick={handleNext} aria-label="Next">
-                <FaChevronRight />
-            </button>
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div 
+                        className="cert-modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setIsModalOpen(false)}
+                    >
+                        <motion.div 
+                            className="cert-modal-content"
+                            initial={{ scale: 0.8, opacity: 0, y: 50 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.8, opacity: 0, y: 50 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="cert-modal-header">
+                                <h2>All Certificates</h2>
+                                <button className="cert-modal-close" onClick={() => setIsModalOpen(false)}>
+                                    <FaTimes />
+                                </button>
+                            </div>
+                            
+                            <div className="cert-modal-body">
+                                <div className="certificate-container modal-grid">
+                                    {remainingCertificates.map((badge, index) => (
+                                        <Certificate
+                                            key={`modal-${index}`}
+                                            img={badge.img}
+                                            title={badge.title}
+                                            link={badge.link}
+                                            desc={badge.desc}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

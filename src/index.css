@@ -8,15 +8,16 @@
 
 
 :root {
-  --bg-color: #1a2420;
+  --bg-color: #f0f4f2;
+  /* Light Sage/Gray */
+  --text-primary: #1a2420;
   /* Deep Dark Green */
-  --text-primary: #ffffff;
-  --text-secondary: #aebcb4;
-  /* Sage Grey */
-  --accent-gold: #FFD700;
-  /* Gold */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-secondary: #4a5c51;
+  /* Dark Sage */
+  --accent-color: #000000;
+  /* Darker Gold */
+  --glass-bg: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.1);
   --font-main: 'Inter', sans-serif;
 }
 
@@ -69,7 +70,7 @@ button:not(.slider-arrow) {
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  color: var(--accent-gold);
+  color: var(--accent-color);
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.5px;
@@ -80,8 +81,8 @@ button:not(.slider-arrow) {
 }
 
 button:not(.slider-arrow):hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-gold);
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

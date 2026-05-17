@@ -53,7 +53,7 @@ function Herosection() {
 
                 <motion.div className="contents" variants={itemVariants}>
                     <p>
-                        Architecting the digital future with <span style={{ color: '#FFD700', fontWeight: 'bold' }}>Code</span> & <span style={{ color: '#FFD700', fontWeight: 'bold' }}>Creativity</span>.
+                        Architecting the digital future with <span style={{ color: '#000000', fontWeight: 'bold' }}>Code</span> & <span style={{ color: '#000000', fontWeight: 'bold' }}>Creativity</span>.
                         <br /><br />
                         I transform complex problems into elegant, high-performance web solutions.
                     </p>
@@ -131,7 +131,7 @@ function Herosection() {
                             right: '-20px',
                             width: '100px',
                             height: '100px',
-                            background: 'rgba(255, 215, 0, 0.2)',
+                            background: 'rgba(0, 0, 0, 0.2)',
                             borderRadius: '50%',
                             filter: 'blur(40px)',
                             zIndex: -1
@@ -147,7 +147,7 @@ function Herosection() {
                     bottom: '30px',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    color: '#FFD700',
+                    color: '#000000',
                     fontSize: '2rem',
                     cursor: 'pointer'
                 }}

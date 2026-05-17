@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #f0f4f2;
   z-index: -1;
   pointer-events: none;
 }
@@ -23,7 +23,7 @@
 /* The actual content */
 .quote h1 {
   font-size: 100px;
-  color: white;
+  color: #1a2420;
   text-align: center;
   z-index: 2;
 }

@@ -12,7 +12,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(to bottom, #ffffff, #aaaaaa);
+    background: linear-gradient(to bottom, #333333, #777777);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -23,8 +23,8 @@
     /* Scoping if possible, but expecting global usage */
     height: 2px;
     width: 100px;
-    background: #FFD700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    background: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {

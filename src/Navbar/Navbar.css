@@ -15,10 +15,10 @@ body {
     top: 0;
     width: 100%;
     z-index: 999;
-    background: rgba(26, 36, 32, 0.85);
+    background: rgba(240, 244, 242, 0.85);
     /* Dark Greenish Tint */
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -55,7 +55,7 @@ body {
     height: 2px;
     left: 0;
     bottom: -2px;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-color);
     /* Gold underline */
     transition: width 0.3s ease-in-out;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 .nav-right a:hover {
-    color: var(--accent-gold);
+    color: var(--accent-color);
 }
 
 /* Style the "Let's Talk" button specifically if needed, inheriting mainly from global button */
